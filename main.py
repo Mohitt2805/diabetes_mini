@@ -12,7 +12,7 @@ def first():
 def predict():
 
 
-    load_model=pickle.load(open(r'C:\Users\mohit\Downloads\My_Proj\model.pkl', 'rb'))
+    load_model=pickle.load(open(r'model.pkl', 'rb'))
     Pregnancies=3
     Glucose= 120 
     BloodPressure= 135 
@@ -44,7 +44,7 @@ def get_data():
     Age= float(data['Age'])
     user_input=[[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin,BMI, DiabetesPedigreeFunction, Age]]
     prediction=["non-diabetes","diabetes"]
-    load_model=pickle.load(open(r'C:\Users\mohit\Downloads\My_Proj\model.pkl', 'rb'))
+    load_model=pickle.load(open(r'model.pkl', 'rb'))
     result=load_model.predict(user_input)
     
     return {"Prediction": prediction[result[0]]}
@@ -61,6 +61,6 @@ def get_data():
     
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0',debug=False,port=8080)
 
 
